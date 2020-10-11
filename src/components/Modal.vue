@@ -2,9 +2,9 @@
   <div class="outerWrapper">
     <div class="innerWrapper">
       <div :style="style" class="photo"></div>
-      <div :class="[{ Extended: DescExtended }, 'description']">
+      <div class="description">
         <h2 class="title">{{ data.title }}</h2>
-        <p class="descriptionP">
+        <p :class="[{ Extended: DescExtended }, 'descriptionP']">
           {{ DescExtended ? data.fullDescription : data.description }}
           <span
             v-if="
@@ -57,13 +57,21 @@ export default {
 <style lang="scss" scoped>
 .outerWrapper {
   background: #f9f9f9;
-  width: 60%;
-  height: 70%;
+  width: 100%;
+  height: 90%;
   position: fixed;
   top: 50%;
   left: 50%;
   transform: translateX(-50%) translateY(-50%);
   box-shadow: 0px 17px 11px -9px rgba(0, 0, 0, 0.75);
+
+  @media (min-width: 768px) {
+    width: 60%;
+    height: 70%;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%);
+  }
 }
 
 .close {
@@ -98,19 +106,27 @@ export default {
 
 .innerWrapper {
   display: flex;
+  padding: 8px;
   height: 100%;
-  padding: 50px;
   justify-content: flex-start;
   align-items: center;
-  flex-direction: row;
+  flex-direction: column;
+
+  @media (min-width: 768px) {
+    flex-direction: row;
+    padding: 50px;
+  }
 
   .photo {
-    width: 50%;
+    width: 100%;
     height: 100%;
     background-size: contain;
     background-repeat: no-repeat;
-    background-position: 0;
-    margin-right: 20px;
+    background-position: 50%;
+
+    @media (min-width: 768px) {
+      margin-right: 20px;
+    }
 
     img {
       width: 100%;
@@ -118,10 +134,19 @@ export default {
   }
 
   .description {
-    width: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
     height: 65%;
     color: #333;
-    padding: 15px;
+    padding: 15px 8px;
+
+    @media (min-width: 768px) {
+      width: 50%;
+      height: 65%;
+      padding: 15px;
+    }
   }
 
   .title {
