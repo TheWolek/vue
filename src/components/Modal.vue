@@ -7,7 +7,11 @@
         <p class="descriptionP">
           {{ DescExtended ? data.fullDescription : data.description }}
           <span
-            v-if="data.fullDescription.length > 200 && !DescExtended"
+            v-if="
+              data.fullDescription.length > 200 &&
+                !DescExtended &&
+                data.fullDescription.length != data.description.length
+            "
             class="learnMore"
             @click="DescExtended = !DescExtended"
             >Czytaj więcej</span
@@ -118,6 +122,10 @@ export default {
     height: 65%;
     color: #333;
     padding: 15px;
+  }
+
+  .title {
+    color: #1e3d4a;
   }
 }
 
