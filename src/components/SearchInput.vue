@@ -5,7 +5,7 @@
     name="search"
     :value="value"
     @input="handleChange"
-    :class="{dark: dark}"
+    :class="{ dark: dark }"
   />
 </template>
 <script>
@@ -37,7 +37,7 @@ input {
   height: 35px;
   color: #fff;
   text-align: center;
-  font-size: 17px;
+  font-size: 19px;
   font-weight: normal;
   border: 0;
   border-bottom: 1px solid #fff;
