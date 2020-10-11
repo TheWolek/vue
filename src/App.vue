@@ -4,6 +4,9 @@
       <transition name="fade">
         <HeroImage v-if="step === 0" />
       </transition>
+      <transition name="slide">
+        <h1 class="claimSmall" v-if="step === 1">SPACER</h1>
+      </transition>
       <Claim v-if="step === 0" />
       <SearchInput
         v-model="searchValue"
@@ -115,6 +118,7 @@ body {
 }
 
 .wrapper {
+  position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -170,5 +174,27 @@ body {
   100% {
     transform: rotate(360deg);
   }
+}
+
+.claimSmall {
+  font-size: 30px;
+  color: #1e3d4a;
+  position: absolute;
+  top: 10px;
+
+  @media (min-width: 768px) {
+    font-size: 25px;
+    margin-bottom: 10px;
+  }
+}
+
+.slide-enter-active,
+.slide-leave-active {
+  transition: margin-top 0.3s ease;
+}
+
+.slide-enter,
+.slide-leave-to {
+  margin-top: -10px;
 }
 </style>
