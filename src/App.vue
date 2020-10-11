@@ -130,6 +130,7 @@ body {
 
   &.dimm {
     filter: contrast(0.4);
+    pointer-events: none;
   }
 }
 

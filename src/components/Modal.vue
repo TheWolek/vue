@@ -52,14 +52,14 @@ export default {
 </script>
 <style lang="scss" scoped>
 .outerWrapper {
-  background: #fff;
+  background: #f9f9f9;
   width: 60%;
   height: 70%;
   position: fixed;
   top: 50%;
   left: 50%;
   transform: translateX(-50%) translateY(-50%);
-  box-shadow: -1px 10px 11px -9px rgba(0, 0, 0, 0.75);
+  box-shadow: 0px 17px 11px -9px rgba(0, 0, 0, 0.75);
 }
 
 .close {
