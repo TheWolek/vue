@@ -57,10 +57,17 @@ export default {
       console.log(item);
       this.modalOpen = true;
       this.curImg = item.links[0].href;
+      let title =
+        item.data[0].title.length > 2 ? item.data[0].title : "without title";
+      let desc =
+        item.data[0].description.length > 2
+          ? item.data[0].description
+          : "no description";
+
       this.desc = {
-        title: item.data[0].title,
-        fullDescription: item.data[0].description,
-        description: item.data[0].description.substring(0, 300),
+        title: title,
+        fullDescription: desc,
+        description: desc.substring(0, 300),
         center: item.data[0].center,
         textToShow: 300
       };
