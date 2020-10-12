@@ -140,8 +140,10 @@ body {
 }
 
 .results {
+  width: 100%;
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr;
+  justify-items: center;
   grid-gap: 20px;
   margin-top: 50px;
 

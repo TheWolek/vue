@@ -1,5 +1,8 @@
 <template>
   <div class="outerWrapper">
+    <div class="closeWrapper">
+      <div class="close" @click="$emit('closeModal')"></div>
+    </div>
     <div class="innerWrapper">
       <div :style="style" class="photo"></div>
       <div class="description">
@@ -26,7 +29,6 @@
         <p>{{ data.center }}</p>
       </div>
     </div>
-    <div class="close" @click="$emit('closeModal')"></div>
   </div>
 </template>
 <script>
@@ -56,9 +58,9 @@ export default {
 </script>
 <style lang="scss" scoped>
 .outerWrapper {
-  background: #f9f9f9;
+  background: #e6e6e6;
   width: 100%;
-  height: 90%;
+  height: 95%;
   position: fixed;
   top: 50%;
   left: 50%;
@@ -66,33 +68,59 @@ export default {
   box-shadow: 0px 17px 11px -9px rgba(0, 0, 0, 0.75);
 
   @media (min-width: 768px) {
+    width: 90%;
+    height: 90%;
+  }
+
+  @media (min-width: 1024px) {
     width: 60%;
     height: 70%;
-    top: 50%;
-    left: 50%;
-    transform: translateX(-50%) translateY(-50%);
   }
 }
 
+.closeWrapper {
+  display: flex;
+  justify-content: flex-end;
+  padding: 10px 20px 0 0;
+}
+
 .close {
-  position: absolute;
+  //position: absolute;
   width: 30px;
   height: 30px;
-  padding: 30px;
-  right: 0;
-  top: 0;
+  padding: 20px;
+  //right: 20px;
+  //top: 0;
   cursor: pointer;
 
   &::before,
   &::after {
     position: absolute;
-    top: 30px;
-    right: 20px;
+    // top: 30px;
+    // right: 20px;
     content: "";
     width: 25px;
     height: 2px;
     background: black;
     display: block;
+  }
+
+  @media (min-width: 768px) {
+    padding: 30px;
+
+    &::before,
+    &::after {
+      width: 35px;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    padding: 20px;
+
+    &::before,
+    &::after {
+      width: 25px;
+    }
   }
 
   &::before {
@@ -106,13 +134,17 @@ export default {
 
 .innerWrapper {
   display: flex;
-  padding: 8px;
-  height: 100%;
+  padding: 10px 8px 8px 8px;
+  height: calc(100% - 10%);
   justify-content: flex-start;
   align-items: center;
   flex-direction: column;
 
   @media (min-width: 768px) {
+    padding: 10px 8px 8px 8px;
+  }
+
+  @media (min-width: 1024px) {
     flex-direction: row;
     padding: 50px;
   }
@@ -125,11 +157,32 @@ export default {
     background-position: 50%;
 
     @media (min-width: 768px) {
+    }
+
+    @media (min-width: 1024px) {
       margin-right: 20px;
     }
 
     img {
       width: 100%;
+    }
+  }
+
+  .descriptionP {
+    height: 22vh;
+    margin-top: 0;
+  }
+
+  @media (min-width: 768px) {
+    .descriptionP {
+      height: 12vh;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .descriptionP {
+      height: 25vh;
+      width: 20vw;
     }
   }
 
@@ -143,8 +196,14 @@ export default {
     padding: 15px 8px;
 
     @media (min-width: 768px) {
+      flex-direction: column;
+      justify-content: flex-start;
+      font-size: 1.2em;
+    }
+
+    @media (min-width: 1024px) {
       width: 50%;
-      height: 65%;
+      height: 100%;
       padding: 15px;
     }
   }

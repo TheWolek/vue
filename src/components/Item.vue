@@ -26,7 +26,7 @@ export default {
 </script>
 <style lang="scss" scoped>
 .item {
-  width: 40vw;
+  width: 100%;
   height: 250px;
   background-size: cover;
   background-repeat: no-repeat;
